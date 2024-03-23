@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giphy Clone</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<style>body {
+
+   
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #12e076d5;
+    color: #edf1ef;
+    padding: 20px;
+    text-align: left;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#gifDisplay {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+p{
+     color:rgb(43, 189, 226)
+}
+
+.gif {
+    margin: 10px;
+}</style>
+<script>
+const API_KEY = 'LJL0swOLZUAVYxme8lyNyImbnoFVlWoO'; // Replace with your Giphy API key
+
+function searchGIFs() {
+    const searchTerm = document.getElementById('searchInput').value;
+    const url = `https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=${API_KEY}&limit=10`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => displayGIFs(data.data))
+        .catch(error => console.error('Error fetching GIFs:', error));
+}
+
+function displayGIFs(gifs) {
+    const gifDisplay = document.getElementById('gifDisplay');
+    gifDisplay.innerHTML = '';
+
+    gifs.forEach(gif => {
+        const gifElement = document.createElement('img');
+        gifElement.src = gif.images.fixed_height.url;
+        gifElement.classList.add('gif');
+        gifDisplay.appendChild(gifElement);
+    });
+    
+}
+</script>
+<body>
+    <header>
+        <h1><b>MEME-BAZAAR</b></h1>
+        <input type="text" id="searchInput" placeholder="Search GIFs...">
+        <button onclick="searchGIFs()">Search</button>
+    </header>
+    <main id="gifDisplay"></main>
+    <H1><CENTER><I> HELLOOO WELCOME!!!</I></CENTER></H1>
+    <p><I><CENTER>Welcome to MEME BAZAAR - Where Laughter Knows No Bounds!
+
+        Are you ready to dive into a world of endless amusement and relatable humor? Look no further! MEME BAZAAR is your ultimate destination for a daily dose of laughter, entertainment, and all things meme-tastic.</CENTER><BR><BR>
+        
+        <B>Why Choose Us?</B><BR><BR>
+        
+        Fresh and Diverse Content: Our dedicated team scours the internet to curate the freshest and most diverse collection of memes just for you. Whether you're into classic memes, trending viral sensations, or niche humor, we've got something for everyone.<BR><BR>
+        
+        Endless Variety: From hilarious images and witty captions to side-splitting videos and clever GIFs, our meme repository offers an endless variety of content to keep you entertained for hours on end.<BR>
+        
+        Relatable and Relevant: We understand the importance of staying relevant in the fast-paced world of internet culture. That's why our memes are not only side-splittingly funny but also highly relatable, capturing the zeitgeist of the moment and reflecting the quirks and idiosyncrasies of everyday life.<BR>
+        
+        Community Engagement: At MEME-BAZAAR, we believe in the power of community. Join our vibrant community of meme enthusiasts, where you can like, share, and comment on your favorite memes, engage in lively discussions, and connect with like-minded individuals from around the globe.<BR>
+        
+        Safe and Positive Environment: We strive to maintain a safe and positive environment for all our users. You can rest assured that our content is free from offensive or inappropriate material, ensuring a fun and enjoyable browsing experience for everyone.<BR><BR>
+        
+        <B>What to Expect:</B><BR><BR>
+        
+        Daily Updates: Get your daily dose of laughter with regular updates of fresh, new memes delivered straight to your feed.
+        Trending Topics: Stay ahead of the curve with memes that capture the latest trends, news stories, and pop culture phenomena.
+        Customizable Feed: Tailor your meme browsing experience to suit your preferences with customizable feeds, personalized recommendations, and easy-to-use filters.<BR><BR>
+        <CENTER><B>Join Us Today!</B></CENTER><BR><BR>
+        
+        Don't miss out on the fun! Join the millions of users who have already made [Your Meme Page Name] their go-to destination for laughter and entertainment. Whether you're looking to brighten your day, share a laugh with friends, or simply unwind after a long day, we've got you covered.<BR>
+        
+        Follow us today and embark on a journey into the wonderful world of memes. Because when it comes to spreading joy and laughter, MEME BAZAAR is where it's @NIPUNMEHTA<BR></I></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
